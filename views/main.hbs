@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Welcome to Da Krab Shack! </title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/assets/js/burger.js"></script>
+    
+    <body style="background-color:yellow;">
+
+        <center>
+            <img width="200" height="200" src="./assets/img/maxresdefault.jpg">
+
+
+            <form data-id="{{this.id}}" class="update-form">
+
+                <div class="form-group">
+                    <label for="auth">Have it your way:</label>
+                    <br>
+                    <input type="text" id="burgerName" value="What you want to eat?" name="burgerName">
+                </div>
+
+
+
+                <button type="button" id="createBurger">Order up!</button>
+                <br>
+             
+            </form>
+            <ul style="float:left">
+                {{#each newBurgers}}
+                <li>
+                    <span>Burger: {{this.burger_name}}</span>
+                    <button type="button" class="updateBurger" id="{{this.burger_name}}">Devour it!</button>
+                </li>
+            
+                {{/each}}
+            </ul>
+            <ul style="float:right">
+                {{#each devouredBurgers}}
+                <li>
+                    <span>Burger: {{this.burger_name}}</span>
+                </li>
+            
+                {{/each}}
+            </ul>
+            
+        </center>
+        
+    </body>
+</head>
+
+</html>

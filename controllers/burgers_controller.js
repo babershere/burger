@@ -3,9 +3,14 @@ var router = express.Router();
 var connection = require('../config/connection.js');
 
 /* GET home page. */
-//router.get('/', function(req, res, next) {
-  
-//});
+router.get('/', function(req, res, next) {
+  connection.query("SELECT * FROM burgers WHERE devoured = false;", function (err, newBurgers) {
+    connection.query("SELECT * FROM burgers WHERE devoured = true;", function (err, devouredBurgers) {
+      res.render("main", { 'newBurgers': newBurgers, 'devouredBurgers': devouredBurgers });
+    })
+  });
+});
+
 router.post('/createburger', function (req, res) {
   console.log('now creating a burger')
   connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger_name], function (err, result) {
