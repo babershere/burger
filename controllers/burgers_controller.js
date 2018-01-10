@@ -21,7 +21,7 @@ router.post('/createburger', function (req, res) {
 
 router.put('/updateburger', function (req, res) {
   var now = new Date(Date.now())
-  connection.query("UPDATE burgers SET devoured = ?, date_eaten = ? WHERE burger_name = ?", [
+  connection.query("UPDATE burgers SET devoured = ?, createdAt = ? WHERE burger_name = ?", [
     true, now, req.body.burger_name
   ], function (err, result) {
       res.json({ message: 'successfully updated a burger' });
