@@ -7,7 +7,7 @@ var burgerController = require('./controllers/burgers_controller.js')
 
 var app = express();
 var mysql = require("mysql");
-
+var PORT = process.env.PORT || 3030
 // view engine setup
 
 
@@ -26,5 +26,5 @@ app.put('/updateburger', burgerController);
 
 app.use('/', burgerController);
 
-app.listen(3030);
+app.listen(PORT);
 
