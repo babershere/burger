@@ -4,7 +4,7 @@ var connection = mysql.createConnection(process.env.JAWSDB_URL || {
     host: "localhost",
     user: "root",
     password: "root",
-    port: "3307",
+    port: "3306",
     database: "burger_db"
 });
 
